@@ -37,3 +37,6 @@ logs/
 .cache/
 .vercel
 .netlify
+
+# Loops upload artifacts — regenerate from the .mjml source
+emails/*.zip

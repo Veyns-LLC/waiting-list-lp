@@ -29,15 +29,35 @@ The output is a fully static `dist/` folder — any static host works.
 
 ## Environment variables
 
-Copy `.env.example` to `.env.local` and fill in the values.
+Copy `.env.example` to `.env.local` and fill it in. On Vercel, set the same keys
+under **Project Settings → Environment Variables**.
 
-| Variable              | Required | Description                                                     |
-| --------------------- | -------- | --------------------------------------------------------------- |
-| `VITE_LOOPS_FORM_ID`  | yes      | Loops.so newsletter form id, used by the waitlist form endpoint. |
+| Variable                 | Required | Description                                             |
+| ------------------------ | -------- | ------------------------------------------------------- |
+| `LOOPS_API_KEY`          | yes      | Loops API key. Read server-side by `/api/subscribe`.     |
+| `LOOPS_MAILING_LIST_ID`  | no       | If set, new contacts are added to this Loops list.       |
 
-Anything prefixed `VITE_` is inlined into the client bundle and is publicly
-visible. Never put a Loops **API key** in a `VITE_` variable — the newsletter
-form endpoint is designed for public, browser-side use and needs no secret.
+Neither is prefixed `VITE_`, so neither is inlined into the client bundle. Never
+add a `VITE_` prefix to an API key — anything prefixed `VITE_` ships to the browser.
+
+## Waitlist / Loops integration
+
+The form posts to `POST /api/subscribe`, a Vercel Function that calls Loops'
+`contacts/create` API with the secret key server-side.
+
+```
+src/app/components/WaitlistForm.tsx  →  POST /api/subscribe
+                                            │
+api/subscribe.ts   (Vercel Function adapter)│
+api/_loops.ts      (shared logic) ──────────┴──→ app.loops.so/api/v1/contacts/create
+```
+
+- Contacts are tagged `source: "waitlist-landing-page"`, `userGroup: "early-cohort"`.
+- An email already in Loops returns **409**, which is reported to the visitor as
+  success — they are on the list either way.
+- A hidden honeypot field (`company`) silently absorbs bot submissions.
+- `npm run dev` serves the same route through a dev-only Vite middleware
+  (see `devSubscribeApi` in `vite.config.ts`), so no `vercel dev` is needed locally.
 
 ## Project layout
 

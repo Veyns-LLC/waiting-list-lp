@@ -1,13 +1,7 @@
 /// <reference types="vite/client" />
 
-interface ImportMetaEnv {
-  /** Loops.so newsletter form id — safe to expose, it is a public endpoint. */
-  readonly VITE_LOOPS_FORM_ID?: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+// Loops credentials are deliberately NOT exposed here — they are read
+// server-side by api/subscribe.ts, never inlined into the client bundle.
 
 declare module "*.png" {
   const src: string;

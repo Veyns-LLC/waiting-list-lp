@@ -1,0 +1,37 @@
+Subject: You're in
+Preview text: Plus one question, if you have ten seconds.
+
+---
+
+Hey,
+
+Thanks for joining the Veyns early cohort — you're on the list.
+
+Quick context on what you signed up for. You drop in a lab report, any PDF
+from Quest, Labcorp, or your doctor. Veyns parses every biomarker
+automatically. No manual entry. Then your Whoop, Oura, and Apple Health data
+land on the same axis.
+
+One timeline, instead of a dozen apps and a folder of PDFs you never open
+twice.
+
+We're building the lab-report parser first, because it's the hardest part and
+nothing works without it. You'll get an email when it's ready to test —
+before it's public.
+
+One thing, if you have ten seconds:
+
+Which biomarker do you actually care about?
+
+Hit reply and name it. ApoB, HbA1c, ferritin, testosterone — whatever made you
+sign up. The early cohort shapes what gets built first, and replying is the
+fastest way for you to do that.
+
+I read every one.
+
+— Krishna
+Founder, Veyns
+
+---
+You're getting this because you joined the Veyns waitlist.
+Unsubscribe: {unsubscribe_link}

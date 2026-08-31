@@ -1,0 +1,80 @@
+<mjml>
+  <mj-head>
+    <mj-title>You're in</mj-title>
+    <!-- Preview text: shows next to the subject in the inbox. -->
+    <mj-preview>Plus one question, if you have ten seconds.</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" />
+      <mj-text font-size="16px" line-height="1.65" color="#1F2937" padding="0 0 18px 0" />
+      <mj-section padding="0" />
+    </mj-attributes>
+    <mj-style>
+      a { color: #1B4B9B; }
+    </mj-style>
+  </mj-head>
+
+  <!-- Narrow and left-aligned on purpose: it should read like a person wrote
+       it, not like a campaign. That is what keeps it out of Promotions. -->
+  <mj-body background-color="#ffffff" width="560px">
+    <mj-section padding="40px 24px 0 24px">
+      <mj-column>
+        <mj-text>Hey,</mj-text>
+
+        <mj-text>
+          Thanks for joining the Veyns early cohort — you're on the list.
+        </mj-text>
+
+        <mj-text>
+          Quick context on what you signed up for. You drop in a lab report,
+          any PDF from Quest, Labcorp, or your doctor. Veyns parses every
+          biomarker automatically. No manual entry. Then your Whoop, Oura, and
+          Apple Health data land on the same axis.
+        </mj-text>
+
+        <mj-text>
+          One timeline, instead of a dozen apps and a folder of PDFs you never
+          open twice.
+        </mj-text>
+
+        <mj-text>
+          We're building the lab-report parser first, because it's the hardest
+          part and nothing works without it. You'll get an email when it's
+          ready to test — before it's public.
+        </mj-text>
+
+        <mj-text padding="10px 0 18px 0">
+          One thing, if you have ten seconds:
+        </mj-text>
+
+        <mj-text font-size="17px" color="#1B4B9B" padding="0 0 18px 0">
+          <strong>Which biomarker do you actually care about?</strong>
+        </mj-text>
+
+        <mj-text>
+          Hit reply and name it. ApoB, HbA1c, ferritin, testosterone — whatever
+          made you sign up. The early cohort shapes what gets built first, and
+          replying is the fastest way for you to do that.
+        </mj-text>
+
+        <mj-text>
+          I read every one.
+        </mj-text>
+
+        <mj-text padding="14px 0 0 0">
+          — Krishna<br />
+          <span style="color:#6B7280;">Founder, Veyns</span>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="34px 24px 40px 24px">
+      <mj-column>
+        <mj-divider border-width="1px" border-color="#E5E7EB" padding="0 0 18px 0" />
+        <mj-text font-size="12px" color="#9CA3AF" line-height="1.6" padding="0">
+          You're getting this because you joined the Veyns waitlist.<br />
+          <a href="{unsubscribe_link}" style="color:#9CA3AF;">Unsubscribe</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

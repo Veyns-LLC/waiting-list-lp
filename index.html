@@ -11,7 +11,13 @@
       content="Veyns pulls your lab reports, wearables, and food into one readable timeline. Join the early cohort and get first access to the iOS app."
     />
     <link rel="canonical" href="https://veyns.com/" />
+    <!-- Modern browsers take the SVG; the PNGs cover the rest. -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <!-- iOS ignores alpha and composites on black, so this one is opaque. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph / social -->
     <meta property="og:type" content="website" />
@@ -22,8 +28,11 @@
       content="Your labs, your wearables, your food — scattered across a dozen apps and PDFs. Veyns pulls it all into one timeline you can actually read."
     />
     <meta property="og:url" content="https://veyns.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="https://veyns.com/favicon-512.png" />
+    <meta property="og:image:alt" content="Veyns" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Veyns — Your bloodwork as one timeline" />
+    <meta name="twitter:image" content="https://veyns.com/favicon-512.png" />
     <meta
       name="twitter:description"
       content="Your labs, your wearables, your food — scattered across a dozen apps and PDFs. Veyns pulls it all into one timeline you can actually read."

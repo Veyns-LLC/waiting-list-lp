@@ -1,0 +1,26 @@
+# Explicit build settings — do not rely on Netlify's framework auto-detection.
+[build]
+  command = "npm run build"
+  publish  = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# The waitlist form posts to /api/subscribe. Map it onto the function.
+# Must come BEFORE the SPA fallback below — Netlify applies redirects in order.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# SPA fallback for any non-asset path.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

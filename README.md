@@ -21,16 +21,27 @@ npm run dev      # dev server on http://localhost:5173
 
 ## Deploying
 
-The output is a fully static `dist/` folder — any static host works.
+Deployed on **Netlify**; `netlify.toml` pins the build explicitly rather than
+relying on framework auto-detection.
 
 - **Build command:** `npm run build`
-- **Output directory:** `dist`
-- **Node version:** 20+
+- **Publish directory:** `dist`
+- **Functions directory:** `netlify/functions`
+- **Node version:** 20
+
+> Do not add a `pnpm-workspace.yaml` back. Netlify treats it as a monorepo
+> signal, switches the package manager to pnpm despite `package-lock.json`,
+> and its Vite detection can then fall back to publishing the repo root —
+> which serves the source `index.html` and its `/src/main.tsx` script tag,
+> giving a blank white page with a 200 status.
+
+A Vercel adapter (`api/subscribe.ts` + `vercel.json`) is kept alongside the
+Netlify one so the site can move hosts; both call the same `api/_loops.ts`.
 
 ## Environment variables
 
-Copy `.env.example` to `.env.local` and fill it in. On Vercel, set the same keys
-under **Project Settings → Environment Variables**.
+Copy `.env.example` to `.env.local` and fill it in. On Netlify, set the same keys under
+**Site configuration → Environment variables**, then redeploy.
 
 | Variable                 | Required | Description                                             |
 | ------------------------ | -------- | ------------------------------------------------------- |
@@ -46,10 +57,16 @@ The form posts to `POST /api/subscribe`, a Vercel Function that calls Loops'
 `contacts/create` API with the secret key server-side.
 
 ```
-src/app/components/WaitlistForm.tsx  →  POST /api/subscribe
-                                            │
-api/subscribe.ts   (Vercel Function adapter)│
-api/_loops.ts      (shared logic) ──────────┴──→ app.loops.so/api/v1/contacts/create
+src/app/components/WaitlistForm.tsx
+          │  POST /api/subscribe
+          ▼
+netlify.toml  /api/*  →  /.netlify/functions/:splat
+          │
+netlify/functions/subscribe.ts   (Netlify adapter — live)
+api/subscribe.ts                 (Vercel adapter — standby)
+          │
+          ▼
+api/_loops.ts  ──→  app.loops.so/api/v1/contacts/create
 ```
 
 - Contacts are tagged `source: "waitlist-landing-page"`, `userGroup: "early-cohort"`.
@@ -57,7 +74,7 @@ api/_loops.ts      (shared logic) ──────────┴──→ app
   success — they are on the list either way.
 - A hidden honeypot field (`company`) silently absorbs bot submissions.
 - `npm run dev` serves the same route through a dev-only Vite middleware
-  (see `devSubscribeApi` in `vite.config.ts`), so no `vercel dev` is needed locally.
+  (see `devSubscribeApi` in `vite.config.ts`), so no Netlify CLI is needed locally.
 
 ## Project layout
 

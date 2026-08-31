@@ -29,6 +29,7 @@
   "include": [
     "src",
     "api",
+    "netlify",
     "vite.config.ts"
   ]
 }

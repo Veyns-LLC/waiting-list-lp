@@ -16,8 +16,9 @@ export type SubscribeResult = {
   body: { ok: true; alreadySubscribed?: boolean } | { ok: false; error: string };
 };
 
+/** Deliberately all-optional: this is unvalidated JSON off the wire. */
 export type SubscribeInput = {
-  email: unknown;
+  email?: unknown;
   /** Honeypot field — bots fill it, humans never see it. */
   company?: unknown;
 };

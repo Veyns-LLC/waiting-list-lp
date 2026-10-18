@@ -1025,9 +1025,13 @@ function Footer() {
           <div>
             <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">Legal</p>
             <ul className="space-y-2.5">
-              {['Privacy Policy', 'Terms of Service', 'Contact'].map(link => (
-                <li key={link}>
-                  <a href="#" className="text-white/50 text-sm hover:text-white transition-colors">{link}</a>
+              {[
+                { label: 'Privacy Policy', href: '/privacy-policy' },
+                { label: 'Terms of Service', href: '#' },
+                { label: 'Contact', href: '#' },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href} className="text-white/50 text-sm hover:text-white transition-colors">{label}</a>
                 </li>
               ))}
             </ul>

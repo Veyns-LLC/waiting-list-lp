@@ -1,17 +1,17 @@
-.privacy-policy-content {
+.legal-document-content {
   color: rgb(31 41 55 / 78%);
   font-size: 1rem;
   line-height: 1.8;
   overflow-wrap: anywhere;
 }
 
-.privacy-policy-content section + section {
+.legal-document-content section + section {
   margin-top: 2.75rem;
   padding-top: 2.25rem;
   border-top: 1px solid rgb(27 75 155 / 10%);
 }
 
-.privacy-policy-content h2 {
+.legal-document-content h2 {
   scroll-margin-top: 7rem;
   margin: 0 0 1rem;
   color: #1f2937;
@@ -19,7 +19,7 @@
   line-height: 1.3;
 }
 
-.privacy-policy-content h3 {
+.legal-document-content h3 {
   margin: 1.75rem 0 0.55rem;
   color: #1f2937;
   font-family: var(--veyns-sans);
@@ -29,40 +29,48 @@
   line-height: 1.5;
 }
 
-.privacy-policy-content p {
+.legal-document-content p {
   margin: 0 0 1rem;
 }
 
-.privacy-policy-content ul {
+.legal-document-content ul,
+.legal-document-content ol {
   margin: 0.25rem 0 1.25rem;
-  list-style: disc;
   padding-left: 1.5rem;
 }
 
-.privacy-policy-content li {
+.legal-document-content ul {
+  list-style: disc;
+}
+
+.legal-document-content ol {
+  list-style: decimal;
+}
+
+.legal-document-content li {
   margin: 0.35rem 0;
   padding-left: 0.2rem;
 }
 
-.privacy-policy-content strong {
+.legal-document-content strong {
   color: #1f2937;
   font-weight: 600;
 }
 
-.privacy-policy-content a {
+.legal-document-content a {
   color: #1b4b9b;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.privacy-policy-content a:focus-visible,
-.policy-skip-link:focus-visible {
+.legal-document-content a:focus-visible,
+.legal-document-skip-link:focus-visible {
   border-radius: 0.2rem;
   outline: 2px solid #1b4b9b;
   outline-offset: 3px;
 }
 
-.policy-skip-link {
+.legal-document-skip-link {
   position: absolute;
   z-index: 10;
   transform: translateY(-200%);
@@ -72,6 +80,15 @@
   color: #1b4b9b;
 }
 
-.policy-skip-link:focus {
+.legal-document-skip-link:focus {
   transform: translateY(-0.5rem);
+}
+
+.legal-document-content .legal-disclaimer {
+  margin: 1.5rem 0;
+  border-left: 4px solid #1b4b9b;
+  border-radius: 0.25rem;
+  background: #e4eef9;
+  padding: 1rem 1.25rem;
+  color: #1f2937;
 }

@@ -1027,8 +1027,8 @@ function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'Privacy Policy', href: '/privacy-policy' },
-                { label: 'Terms of Service', href: '#' },
-                { label: 'Contact', href: '#' },
+                { label: 'Terms of Service', href: '/terms-of-service' },
+                { label: 'Contact', href: '/contact' },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <a href={href} className="text-white/50 text-sm hover:text-white transition-colors">{label}</a>

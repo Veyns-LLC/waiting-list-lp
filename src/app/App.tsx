@@ -8,12 +8,24 @@ import { WaitlistSection } from "./components/WaitlistSection";
 import { SiteFooter } from "./components/SiteFooter";
 
 const PrivacyPolicy = lazy(() => import("./PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./TermsOfService"));
+const Contact = lazy(() => import("./Contact"));
 
 export default function App() {
-  if (window.location.pathname.replace(/\/+$/, "") === "/privacy-policy") {
+  const path = window.location.pathname.replace(/\/+$/, "");
+  const RoutePage =
+    path === "/privacy-policy"
+      ? PrivacyPolicy
+      : path === "/terms-of-service"
+        ? TermsOfService
+        : path === "/contact"
+          ? Contact
+          : null;
+
+  if (RoutePage) {
     return (
-      <Suspense fallback={<main className="p-8 text-center">Loading Privacy Policy…</main>}>
-        <PrivacyPolicy />
+      <Suspense fallback={<main className="p-8 text-center">Loading page…</main>}>
+        <RoutePage />
       </Suspense>
     );
   }

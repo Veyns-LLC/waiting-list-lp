@@ -1,9 +1,9 @@
 import { VeynsLogo } from "./VeynsLogo";
 
 const LINKS = [
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of service", href: "#" },
+  { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
 export function SiteFooter() {
